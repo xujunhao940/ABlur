@@ -2,6 +2,8 @@
 
 A small Lit-based library for creating configurable gradient backdrop blur effects.
 
+[Preview](https://xujunhao940.github.io/ABlur/)
+
 [![NPM License](https://img.shields.io/npm/l/ablur)](https://github.com/xujunhao940/ablur/blob/master/LICENSE)
 [![NPM Version](https://img.shields.io/npm/v/ablur)](https://npmjs.com/package/ablur)
 [![NPM Downloads](https://img.shields.io/npm/dm/ablur)](https://npmjs.com/package/ablur)
