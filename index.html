@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ablur</title>
+    <script type="module" src="/src/index.ts"></script>
+    <style>
+        .simple-controls {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px 16px 8px;
+            font-size: 13px;
+            font-family: ui-sans-serif, system-ui, sans-serif;
+        }
+
+        .simple-controls label {
+            margin-right: 8px;
+        }
+
+        .simple-controls .row {
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .simple-controls input[type="range"] {
+            width: 120px;
+        }
+    </style>
+</head>
+<body style="margin: 0">
+<img src="https://images.unsplash.com/photo-1551702034-a8c2ebaa924f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHNoYW5naGFpfGVufDB8fDB8fHww"
+     alt="background" style="position:fixed;z-index:-1;inset:0;width:100vw;height:100vh;object-fit:cover;">
+<div class="simple-controls">
+    <div class="row">
+        <label for="layers">layers</label>
+        <input id="layers" type="range" min="1" max="24" step="1" value="2">
+        <span id="layersVal">2</span>
+    </div>
+    <div class="row">
+        <label for="baseBlur">baseBlur</label>
+        <input id="baseBlur" type="range" min="0" max="40" step="1" value="12">
+        <span id="baseBlurVal">12</span>
+    </div>
+    <div class="row">
+        <label for="endAt">endAt</label>
+        <input id="endAt" type="range" min="0" max="100" step="1" value="0">
+        <span id="endAtVal">0</span>
+    </div>
+    <div class="row">
+        <label for="endAt">height</label>
+        <input id="height" type="range" min="0" max="100" step="1" value="100">
+        <span id="heightVal">100%</span>
+    </div>
+    <div class="row">
+        <label for="flip">flip</label>
+        <input id="flip" type="checkbox">
+    </div>
+</div>
+<ablur-layer id="ablur" style="width:100%; height: 200px; left: 0; top: 0; position: absolute;">
+    <p style="color: white; padding: 12px; margin: 0; position: relative; z-index: 1000;">Ablur Layer</p>
+</ablur-layer>
+<script type="module">
+    const ab = document.getElementById('ablur');
+    const $ = id => document.getElementById(id);
+    const sync = () => {
+        ab.layers = Number($("layers").value);
+        ab.baseBlur = Number($("baseBlur").value);
+        ab.endAt = Number($("endAt").value);
+        ab.height = $("height").value+"%";
+        ab.flip = $("flip").checked;
+        $("layersVal").textContent = ab.layers;
+        $("baseBlurVal").textContent = ab.baseBlur;
+        $("endAtVal").textContent = ab.endAt;
+        $("heightVal").textContent = ab.height;
+    };
+    ["layers", "baseBlur", "endAt", "height", "flip"].forEach(id => $(id).addEventListener('input', sync));
+    sync();
+</script>
+</body>
+</html>
