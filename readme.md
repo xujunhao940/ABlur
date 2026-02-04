@@ -2,7 +2,7 @@
 
 A small Lit-based library for creating configurable gradient backdrop blur effects.
 
-[Preview](https://xujunhao940.github.io/ABlur/)
+[Preview](https://ablur.xujunhao.me)
 
 [![NPM License](https://img.shields.io/npm/l/ablur)](https://github.com/xujunhao940/ablur/blob/master/LICENSE)
 [![NPM Version](https://img.shields.io/npm/v/ablur)](https://npmjs.com/package/ablur)
@@ -18,7 +18,6 @@ npm install ablur
 ## Using CDN
 
 ```html
-
 <head>
     <script src="https://unpkg.com/ablur@latest/dist/index.js"></script>
 </head>
@@ -31,7 +30,7 @@ npm install ablur
 
 ## Component API
 
-### <ablur-layer>
+### \<ablur-layer\>
 
 - `layers` (Number) — number of blur slices (higher = smoother, slower). Default: 2
 - `baseBlur` (Number) — max blur in pixels at `end-at`. Default: 0
